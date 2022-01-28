@@ -3,7 +3,11 @@ import { Wrapper } from './TodoCard.styles';
 
 const TodoCard = ({ todo: { title, body, author, done }, ...rest }) => {
   // console.log({ title, body, author, done });
-  return <Wrapper>todo card</Wrapper>;
+  return (
+    <Wrapper>
+      <p>{title}</p>
+    </Wrapper>
+  );
 };
 
 export default TodoCard;

@@ -7,11 +7,11 @@ const initialState = {
 };
 
 const todoSlice = createSlice({
-  name: 'user',
+  name: 'todo',
   initialState,
   reducers: {
     setTodoStatus: (state, { payload }) => {
-      state.user = { ...state, ...payload };
+      state = { ...state, ...payload };
     },
   },
 });

@@ -4,10 +4,11 @@ import useMutation from '../../hooks/useMutationHook';
 import { useDispatch } from 'react-redux';
 import { CREATE_TODO } from '../../repository/Mutation';
 import { setTodoStatus } from '../../redux/slice/todoSlice';
+import { TODOS } from '../../repository/Query';
 
-const TodoInput = () => {
+const TodoInput = ({ refetch }) => {
   const dispatch = useDispatch();
-  const [createTodo, { loading, data, error }] = useMutation(CREATE_TODO);
+  const [createTodo, { loading }] = useMutation(CREATE_TODO);
   const [todo, setTodo] = useState({
     author: localStorage.getItem('author'),
     title: '',
@@ -29,6 +30,7 @@ const TodoInput = () => {
           ...todo,
         },
       },
+      refetchQueries: [{ query: TODOS }],
     });
     if (!loading) {
       dispatch(setTodoStatus({ createTodo: true }));
