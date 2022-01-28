@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper } from './Login.styles';
-import { useSelector, useDispatch } from 'react-redux';
-import { useQuery } from '@apollo/client';
-import { setUser } from '../redux/slice/userSlice';
-import { USERS } from '../repository/Query';
-import Loading from '../component/Loading/Loading';
-
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser } from '../redux/slice/userSlice';
+
+import { useQuery } from '@apollo/client';
+import { USERS } from '../repository/Query';
+
+import Loading from '../component/Loading/Loading';
+import { Wrapper } from './Login.styles';
+
 export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
